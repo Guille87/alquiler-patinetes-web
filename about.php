@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -25,36 +28,16 @@
 
       <div id="mySidebar" class="sidebar">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-         <a href="index.html">Inicio</a>
-         <a href="gallery.html">Galería</a>
-         <a href="booking.html">Reserva</a>
-         <a href="about.html">Nosotros</a>
-         <a href="contact.html">Contacto</a>
+         <a href="index.php">Inicio</a>
+         <a href="booking.php">Reserva</a>
+         <a href="about.php">Nosotros</a>
+         <a href="contact.php">Contacto</a>
       </div>
 
       <div id="main">
          <!-- header section start -->
          <div class="header_section">
-            <div class="row">
-               <div class="col-sm-6">
-                  <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
-               </div>
-               <div class="col-sm-6">
-                  <div class="togle_3">
-                     <div class="left_main">
-                        <div class="menu_main">
-                           <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-                        </div>
-                     </div>
-                     <div class="middle_main">
-                        <div class="shoping_bag"><img src="images/shopping-bag.png"></div>
-                     </div>
-                     <div class="right_main">
-                        <div class="togle_main"><a class="class="openbtn" onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <?php include('layouts/main_header.php') ?>
          </div>
          <!-- header section end -->
 
@@ -80,54 +63,34 @@
                      <h2 class="important_text">Enlaces importantes</h2>
                      <div class="footer_menu">
                         <ul>
-                           <li><a href="index.html">Inicio</a></li>
-                           <li><a href="gallery.html">Galería</a></li>
-                           <li><a href="booking.html">Reserva</a></li>
-                           <li><a href="about.html">Nosotros</a></li>
-                           <li><a href="contact.html">Contacto</a></li>
+                           <li><a href="about.php">Nosotros</a></li>
+                           <li><a href="contact.php">Contacto</a></li>
                         </ul>
                      </div>
                   </div>
                   <div class="col-sm-4">
                      <h2 class="important_text">Redes Sociales</h2>
-                     <div class="footer_menu">
+                     <div class="footer_menu_social">
                         <ul>
-                           <li><a href="#">Facebook</a></li>
-                           <li><a href="#">Linkedin</a></li>
-                           <li><a href="#">Twitter</a></li>
-                           <li><a href="#">Youtube</a></li>
-                           <li><a href="#">Pinterest</a></li>
+                           <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
                   </div>
                </div>   
             </div>
          </div>
+         <div class="copyright_text">© 2022 - Made by Guillermo Amado Díaz</div>
          <!-- footer section end -->
 
          <!-- Javascript files-->
          <script src="js/jquery.min.js"></script>
-         <script src="js/popper.min.js"></script>
          <script src="js/bootstrap.bundle.min.js"></script>
-         <script src="js/jquery-3.0.0.min.js"></script>
-         <script src="js/plugin.js"></script>
          <!-- sidebar -->
          <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-         <script src="js/custom.js"></script>
-         <!-- javascript --> 
-         <script src="js/owl.carousel.js"></script>
-         <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-         <script>
-            $(document).ready(function(){
-               $(".fancybox").fancybox({
-                  openEffect: "none",
-                  closeEffect: "none"
-               });
-               $('#myCarousel').carousel({
-                  interval: false
-               });
-            });
-         </script>
 
          <script>
             function openNav() {

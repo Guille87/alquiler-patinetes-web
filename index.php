@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -22,40 +25,17 @@
    </head>
    <!-- body -->
    <body>
-
       <div id="mySidebar" class="sidebar">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-         <a href="index.html">Inicio</a>
-         <a href="gallery.html">Patinetes</a>
-         <a href="booking.html">Reserva</a>
-         <a href="about.html">Nosotros</a>
-         <a href="contact.html">Contacto</a>
+         <a href="index.php">Inicio</a>
+         <a href="booking.php">Reserva</a>
+         <a href="about.php">Nosotros</a>
+         <a href="contact.php">Contacto</a>
       </div>
       <div id="main">
          <!-- header section start -->
          <div class="header_section">
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-sm-6">
-                     <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
-                  </div>
-                  <div class="col-sm-6">
-                     <div class="togle_3">
-                        <div class="left_main">
-                           <div class="menu_main">
-                              <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-                           </div>
-                        </div>
-                        <div class="middle_main">
-                           <div class="shoping_bag"><img src="images/shopping-bag.png"></div>
-                        </div>
-                        <div class="right_main">
-                           <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <?php include('layouts/main_header.php') ?>
             <div class="banner_section layout_padding">
                <div class="container">
                   <section >
@@ -75,7 +55,7 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                        <div class="img-box">
-                                          <figure><img src="images/img-index-1.png" style="max-width: 100%;"/></figure>
+                                          <figure><img src="images/xiaomi-essential.png" style="max-width: 100%;"/></figure>
                                        </div>
                                     </div>
                                  </div>
@@ -91,7 +71,7 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                        <div class="img-box">
-                                          <figure><img src="images/img-index-2.png" style="max-width: 100%;"/></figure>
+                                          <figure><img src="images/xiaomi-1s.png" style="max-width: 100%;"/></figure>
                                        </div>
                                     </div>
                                  </div>
@@ -103,39 +83,14 @@
                </div>
             </div>
          </div>
-         <!-- header section start -->
+         <!-- header section end -->
 
          <!-- content section start -->
          <div class="our_section">
             <div class="container-fluid">
-               <div class="img-box">
-                  <div id="product-grid">
-                     <div id="item">
-                     <figure><img src="images/img-index-2.png" style="max-width: 100%;"/><div class="send_btn">
-                        <button type="button" class="rent-btn"><a href="#">Reservar</a></button>
-                     </div></figure></div>
-                     <div id="item">
-                     <figure><img src="images/img-index-2.png" style="max-width: 100%;"/><div class="send_btn">
-                        <button type="button" class="rent-btn"><a href="#">Reservar</a></button>
-                     </div></figure></div>
-                     <div id="item">
-                     <figure><img src="images/img-index-2.png" style="max-width: 100%;"/><div class="send_btn">
-                        <button type="button" class="rent-btn"><a href="#">Reservar</a></button>
-                     </div></figure></div>
-                     <div id="item">
-                     <figure><img src="images/img-index-2.png" style="max-width: 100%;"/><div class="send_btn">
-                        <button type="button" class="rent-btn"><a href="#">Reservar</a></button>
-                     </div></figure></div>
-                     <div id="item">
-                     <figure><img src="images/img-index-2.png" style="max-width: 100%;"/><div class="send_btn">
-                        <button type="button" class="rent-btn"><a href="#">Reservar</a></button>
-                     </div></figure></div>
-                     <div id="item">
-                     <figure><img src="images/img-index-2.png" style="max-width: 100%;"/><div class="send_btn">
-                        <button type="button" class="rent-btn"><a href="#">Reservar</a></button>
-                     </div></figure></div>
+               <div class="title-section">Lista de patinetes</div>
+                  <div class="product-grid" id="space-list">
                   </div>
-               </div>
             </div>
          </div>
          <!-- content section end -->
@@ -148,29 +103,27 @@
                      <h2 class="important_text">Enlaces importantes</h2>
                      <div class="footer_menu">
                         <ul>
-                           <li><a href="index.html">Inicio</a></li>
-                           <li><a href="gallery.html">Galería</a></li>
-                           <li><a href="booking.html">Reserva</a></li>
-                           <li><a href="about.html">Nosotros</a></li>
-                           <li><a href="contact.html">Contacto</a></li>
+                           <li><a href="about.php">Nosotros</a></li>
+                           <li><a href="contact.php">Contacto</a></li>
                         </ul>
                      </div>
                   </div>
                   <div class="col-sm-4">
-                     <h2 class="important_text">Redes Sociales</h2>
-                     <div class="footer_menu">
+                     <h2 class="social_text">Redes Sociales</h2>
+                     <div class="footer_menu_social">
                         <ul>
-                           <li><a href="#">Facebook</a></li>
-                           <li><a href="#">Linkedin</a></li>
-                           <li><a href="#">Twitter</a></li>
-                           <li><a href="#">Youtube</a></li>
-                           <li><a href="#">Pinterest</a></li>
+                           <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+                               <a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
                   </div>
                </div>
             </div>
          </div>
+         <div class="copyright_text">© 2022 - Made by Guillermo Amado Díaz</div>
          <!-- footer section end -->
 
          <!-- Javascript files-->
@@ -178,21 +131,8 @@
          <script src="js/bootstrap.bundle.min.js"></script>
          <!-- sidebar -->
          <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-         <!-- javascript --> 
-         <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-         <script>
-            $(document).ready(function(){
-               $(".fancybox").fancybox({
-                  openEffect: "none",
-                  closeEffect: "none"
-               });
-               $('#myCarousel').carousel({
-                  interval: false
-               });
-            });
-         </script>
 
-         <script>
+         <script type="text/javascript">
             function openNav() {
                document.getElementById("mySidebar").style.width = "175px";
                document.getElementById("main").style.marginLeft = "175px";
@@ -202,6 +142,31 @@
                document.getElementById("mySidebar").style.width = "0px";
                document.getElementById("main").style.marginLeft= "0px";
             }
+
+            $(document).ready(function() {
+               $.ajax({
+                  url: 'servicios/producto/obtener_productos.php',
+                  type: 'POST',
+                  data: {},
+                  success: function(data) {
+                     console.log(data);
+                     let html = '';
+                     for (let i = 0; i < data.datos.length; i++) {
+                        html += 
+                           '<div class="item">'+
+                              '<figure><img src="images/'+data.datos[i].imagen+'" style="max-width: 100%;"/>'+
+                                 '<div class="patinete_nombre">'+data.datos[i].nombreprod+'</div>'+
+                                 '<div class="send_btn"><a href="producto.php?p='+data.datos[i].codpro+'"><button type="button" class="rent-btn">Detalles</button></a></div>'+
+                              '</figure>'+
+                           '</div>';
+                     }
+                     document.getElementById("space-list").innerHTML=html;
+                  },
+                  error: function(err) {
+                     console.error(err);
+                  }
+               });
+            });
          </script>
       </div>
    </body>
