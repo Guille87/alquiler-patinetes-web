@@ -16,6 +16,7 @@
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <!-- style css -->
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- Tweaks for older IEs-->
@@ -29,9 +30,13 @@
       <div id="mySidebar" class="sidebar">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
          <a href="index.php">Inicio</a>
-         <a href="booking.php">Reserva</a>
          <a href="about.php">Nosotros</a>
          <a href="contact.php">Contacto</a>
+         <?php
+         if ($_SESSION['nomusu'] == "admin") {
+               echo '<a href="admin/main.php">Panel admin</a>';
+         }
+         ?>
       </div>
 
       <div id="main">
@@ -50,7 +55,7 @@
                      <div class="email_box">
                         <div class="input_main">
                            <div class="container">
-                              <form action="/action_page.php" method="POST">
+                              <form action="MAILTO:guillermo_amado@hotmail.es" method="post" enctype="text/plain">
                                  <div class="form-group">
                                     <input type="text" class="email-bt" placeholder="Nombre" name="Nombre">
                                  </div>
@@ -58,16 +63,16 @@
                                     <input type="text" class="email-bt" placeholder="Email" name="Email">
                                  </div>
                                  <div class="form-group">
-                                    <input type="text" class="email-bt" placeholder="Teléfono" name="Teléfono">
+                                    <input type="text" class="email-bt" placeholder="Teléfono" name="Telefono">
                                  </div>
                                  <div class="form-group">
                                     <textarea class="message-bt" placeholder="Mensaje" rows="5" id="comment" name="Mensaje"></textarea>
                                  </div>
+                                 <div class="send_btn">
+                                    <button type="submit" class="main_bt">Enviar</button>
+                                 </div>
                               </form>
                            </div> 
-                           <div class="send_btn">
-                              <button type="submit" class="main_bt">Enviar</button>
-                           </div>
                         </div>
                      </div>
                   </div>
@@ -77,34 +82,18 @@
          <!-- contact section end -->
          
          <!-- footer section start -->
-         <div class="footer_section layout_padding">
-            <div class="container">
-               <div class="row">
-                  <div class="col-sm-8">
-                     <h2 class="important_text">Enlaces importantes</h2>
-                     <div class="footer_menu">
-                        <ul>
-                           <li><a href="about.php">Nosotros</a></li>
-                           <li><a href="contact.php">Contacto</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                     <h2 class="important_text">Redes Sociales</h2>
-                     <div class="footer_menu_social">
-                        <ul>
-                           <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                               <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-                               <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-                               <a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
-                               <a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
          <div class="copyright_text">© 2022 - Made by Guillermo Amado Díaz</div>
+         <h2 class="social_text">Redes Sociales</h2>
+         <div class="footer_menu_social">
+            <ul>
+               <li><a href="under_construction.php"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                  <a href="under_construction.php"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                  <a href="under_construction.php"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                  <a href="under_construction.php"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+                  <a href="under_construction.php"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+            </ul>
+         </div>
+         <div class="tienda">Puedes encontrar nuestra tienda en: Rda. Nelle, 30, 15005 A Coruña</div>
          <!-- footer section end -->
 
          <!-- Javascript files-->

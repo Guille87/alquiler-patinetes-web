@@ -18,7 +18,7 @@ velocidad máxima de 25km/h, duración de la batería de 30km, su manillar está
 INSERT INTO producto (nombreprod, descripcion, stock, imagen)
 VALUES ('Cecotec Bongo Serie S Unlimited', 'Patinete con una velocidad de hasta 25km/h, una autonomía de hasta 45km, 
 tiene un gran motor de 350W nominal y 750W de máxima que otorga una fuerza asombrosa, tiene todo el pack completo
-para ser considerado el mejor patinete eléctrico', 5, 'cecotec-bongo.png');
+para ser considerado el mejor patinete eléctrico', 10, 'cecotec-bongo.png');
 
 CREATE TABLE usuario (
     codusu INT NOT NULL AUTO_INCREMENT,
@@ -30,12 +30,4 @@ CREATE TABLE usuario (
     PRIMARY KEY (codusuario)
 );
 
-INSERT INTO usuario (nomusu, passusu, dni, email) VALUES ('test', '123456', '53308506A', 'correo@example.com');
-
-CREATE TABLE producto (
-    codpro INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    stock INT NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    PRIMARY KEY (`codpro`)
-);
+INSERT INTO usuario (nomusu, passusu, dni, email) VALUES ('test', '1234', '53308506A', 'correo@example.com');

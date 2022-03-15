@@ -219,7 +219,7 @@ button {
 .banner_section {
 	width: 100%;
 	float: left;
-	padding-bottom: 70px;
+	padding-bottom: 30px;
 	
 }
 .scooter_text {
@@ -234,15 +234,16 @@ button {
 }
 .part1 {
     padding: 5px;
-    width: calc(60% - 10px);
+    width: calc(55% - 10px);
 }
 .part2 {
     padding: 5px;
-    width: calc(40% - 10px);
+    width: calc(45% - 10px);
     margin: 20px 0;
 }
 .part1 img {
-    width: 100%;
+    width: 80%;
+    float: right;
 }
 .part2 * {
     margin: 10px 0;
@@ -264,6 +265,14 @@ button {
     background: #d86a6a;
     font-size: 18px;
 }
+.part2 a {
+    border-style: none;
+    border-radius: 15px;
+    padding: 13px 20px;
+    color: #fff;
+    background: #d86a6a;
+    font-size: 18px;
+}
 .title-section {
     padding: 0 10px;
     font-size: 28px;
@@ -272,24 +281,24 @@ button {
 .about_section {
 	width: 100%;
 	float: left;
-    padding-bottom: 282px;
+    padding-bottom: 45px;
 }
 .about_title {
-    width: 50%;
+    width: 100%;
     float: left;
     font-size: 26pt;
     color: #1c6aec;
-    text-align: left;
-    padding-left: 30px;
-    padding-top: 50px;
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 .about_middle {
-    width: 70%;
+    width: 100%;
     height: auto;
-    margin: 0 auto 0 10px;
+    margin: 0 auto 0 270px;
 }
 .about_text {
-    width: 75%;
+    width: 100%;
     float: left;
     font-size: 18px;
     color: #18191a;
@@ -380,7 +389,8 @@ button {
     float: left;
     background-image: url(../images/contact-bg.png);
     height: auto;
-    padding-bottom: 40px;
+    padding-top: 50px;
+    padding-bottom: 90px;
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -394,29 +404,30 @@ button {
     margin-bottom: 20px;
 }
 .input_section {
-    width: 50%;
-    margin: 30px auto 0;
+    width: 75%;
+    margin: 0 100px 0;
     font-size: 20px;
 }
 
 .login_box {
     width: 100%;
     float: left;
-    margin-bottom: 70px;
-    /* background-color: #ffffff; */
-    /* border-radius: 20px; */
+    margin-bottom: 188px;
+    margin-left: 30px;
+    margin-right: 200px;
+    background-size: 100%;
     height: auto;
-    /* padding: 50px 20px; */
-    /* opacity: 0.80; */
+    padding: 44px 110px;
 }
 .register_box {
-    width: 100%;
+    width: 75%;
     float: left;
+    margin-left: 135px;
+    margin-right: 200px;
     /* background-color: #ffffff; */
     /* border-radius: 20px; */
     height: auto;
-    /* padding: 50px 20px; */
-    /* opacity: 0.80; */
+    padding: 58px 0; 
 }
 .form-group {
     margin-bottom: 2rem;
@@ -464,8 +475,10 @@ button.main_bt a:hover {
 }
 
 .booking_main {
-    width: 100%;
+    width: 35%;
     float: left;
+    padding-bottom: 109px;
+    margin-left: 575px;
 }
 .price_text {
     width: 58%;
@@ -496,11 +509,14 @@ button.main_bt a:hover {
 }
 
 .social_text {
-	width: 100%;
+    width: 25%;
 	float: left;
-	font-size: 26px;
+	font-size: 24px;
+    padding: 10px 20px;
 	color: #ffffff;
+    background-color: #051148;
 	font-weight: bold;
+    text-align: right;
 }
 
 .footer_menu {
@@ -518,20 +534,23 @@ button.main_bt a:hover {
 	color: #ffffff;
 }
 
-.footer_menu li a {	
+.footer_menu li a {
 	color: #ffffff;
 }
 
-.footer_menu li a:hover { 
+.footer_menu li a:hover {
 	color: #ff7e1d;
 }
 
 .footer_menu_social li {
-    font-size: 32px;
-	color: #ffffff;
+    width: 15%;
+    float: left;
+    font-size: 20.5px;
+    background-color: #051148;
+    padding: 5px 0;
 }
 
-.footer_menu_social li a {	
+.footer_menu_social li a {
 	color: #ffffff;
 }
 
@@ -545,11 +564,11 @@ button.main_bt a:hover {
     border: 0;
 }
 
-.copyright_text{
-	width: 100%;
+.copyright_text {
+    width: 25%;
 	float: left;
 	color: #ffffff;
-	text-align: center;
+	text-align: right;
     background-color: #051148;
 	padding: 10px 0px;
 	font-size: 15px;
@@ -665,8 +684,8 @@ button.main_bt a:hover {
 .error {
     margin-top: -20px;
     margin-bottom: 15px;
-    color: #f7941d;
-    font-size: 14px;
+    color: #f71d1d;
+    font-size: 16px;
     text-align: left;
 }
 
@@ -676,28 +695,11 @@ button.main_bt a:hover {
     text-align: right;
     color: rgb(255, 255, 255);
     font-size: 20px;
-    cursor: pointer;
     margin-right: 20px;
 }
-
-.menu_opciones {
-    /*display: none;*/
-    width: 100px;
-    background: rgb(113, 155, 202);
-    position: fixed;
-    top: 67px;
-    right: 334px;
-    box-shadow: 0 0 8px 1px rgb(150, 150, 150);
-    border-radius: 5px;
-}
-
-.menu_opcion {
-    padding: 5px 5px;
-    color: #000;
-}
-
-.menu_opciones a:hover {
-    color: #000;
+.usu_login a {
+    padding-right: 50px;
+    color: rgb(255, 255, 255);
 }
 
 .register_text {
@@ -707,4 +709,137 @@ button.main_bt a:hover {
 	font-size: 40px;
 	color: #000;
 	text-align: center;
+}
+
+.img-construccion {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 200px;
+    width: 55%;
+}
+
+.logout {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+
+/* CSS parte administrativa */
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.body-nav-bar {
+    width: 200px;
+    background: rgb(91 115 225);
+    height: 100%;
+    padding: 10px;
+}
+.body-nav-bar h3{
+    color: #fff;
+}
+.body-nav-bar img {
+    padding: 20px 0;
+    width: 100%;
+}
+.body-nav-bar ul li {
+    display: flex;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.body-nav-bar ul li a {
+    padding: 10px;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+}
+.body-nav-bar ul li a:hover {
+    background: blue;
+}
+.body-page {
+    width: calc(100% - 200px);
+    height: 100%;
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,td {
+    padding: 5px;
+    border: 1px solid #666;
+}
+th {
+    background: rgb(91 115 225);
+    color: #fff;
+}
+.td-option {
+    width: 100px;
+}
+.div-flex {
+    display: flex;
+}
+.div-td-button button{
+    width: 30px;
+    padding: 5px;
+}
+.modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    background: rgba(50, 50, 50, 0.5);
+}
+.body-modal {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 10px;
+    padding-right: 18px;
+    border-radius: 5px;
+    position: relative;
+}
+.btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.body-modal h3 {
+    margin-bottom: 10px;
+}
+.body-modal .div-flex {
+    display: flex;
+    margin-bottom: 5px;
+}
+.body-modal .div-flex label {
+    width: 100px;
+}
+.body-modal .div-flex input {
+    width: calc(100% - 100px);
+}
+.reserva-button {
+    cursor: inherit;
+    background: rgba(99, 98, 98, 0.5) !important;
+}
+.part2 h5 {
+    padding-top: 15px;
+}
+.tienda {
+    width: 35%;
+    float: left;
+    font-size: 18.3px;
+    background-color: #051148;
+    color: #fff;
+    padding: 7px 0;
 }
