@@ -570,7 +570,7 @@ button.main_bt a:hover {
 	color: #ffffff;
 	text-align: right;
     background-color: #051148;
-	padding: 10px 0px;
+	padding: 9.9px 0px;
 	font-size: 15px;
 }
 
@@ -715,7 +715,6 @@ button.main_bt a:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 200px;
     width: 55%;
 }
 

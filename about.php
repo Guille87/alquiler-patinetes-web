@@ -33,8 +33,10 @@
          <a href="about.php">Nosotros</a>
          <a href="contact.php">Contacto</a>
          <?php
-         if ($_SESSION['nomusu'] == "admin") {
+         if (isset($_SESSION['nomusu'])) {
+            if($_SESSION['nomusu'] == "admin") {
                echo '<a href="admin/main.php">Panel admin</a>';
+            }
          }
          ?>
       </div>

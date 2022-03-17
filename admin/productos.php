@@ -45,6 +45,30 @@
                 <button onclick="save_producto()">Guardar</button>
             </div>
         </div>
+        <div class="modal" id="modal-producto-edit" style="display: none;">
+            <div class="body-modal">
+                <button class="btn-close" onclick="hide_modal('modal-producto-edit')"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <h3>Editar producto</h3>
+                <div class="div-flex">
+                    <label>Código</label>
+                    <input type="text" id="codigo-e" disabled>
+                </div>
+                <div class="div-flex">
+                    <label>Nombre</label>
+                    <input type="text" id="nombre-e">
+                </div>
+                <div class="div-flex">
+                    <label>Descripción</label>
+                    <input type="text" id="descripcion-e">
+                </div>
+                <input type="text" id="rutaimagen-aux" style="display: none;">
+                <img id="rutaimagen" src="" style="width: 200px;margin: 5px 0;">
+                <div class="div-flex">
+                    <input type="file" id="imagen-e">
+                </div>
+                <button onclick="update_producto()">Actualizar</button>
+            </div>
+        </div>
         <div class="main-container">
             <?php include('../layouts/directorios.php'); ?>
             <div class="body-page">
@@ -65,17 +89,17 @@
                             while ($row = mysqli_fetch_array($resultado)) {
                                 $url = '../servicios/producto/producto_delete.php?codpro='.$row['codpro'];
                                 echo
-                        '<tr>
-                            <td>'.$row['codpro'].'</td>
-                            <td>'.$row['nombreprod'].'</td>
-                            <td>'.$row['descripcion'].'</td>
-                            <td class="td-option">
-                                <div class="flex div-td-button">
-                                    <button><i class="fa fa-pencil" aria-hidden="true" href="../servicios/producto/producto_edit.php?codpro='.$row['codpro'].'"></i></button>
-                                    <button><a href="javascript:confirmDelete(\''.$url.'\')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></button>
-                                </div>
-                            </td>
-                        </tr>';
+                                '<tr>
+                                    <td>'.$row['codpro'].'</td>
+                                    <td>'.$row['nombreprod'].'</td>
+                                    <td>'.$row['descripcion'].'</td>
+                                    <td class="td-option">
+                                        <div class="flex div-td-button">
+                                            <button onclick="edit_producto('.$row['codpro'].')"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+                                            <a href="javascript:confirmDelete(\''.$url.'\')"><button><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                        </div>
+                                    </td>
+                                </tr>';
                             }
                         ?>
                     </tbody>
@@ -86,7 +110,7 @@
         <script type="text/javascript">
             function confirmDelete(delUrl) {
                 if (confirm("¿Seguro que quieres eliminar el producto?")) {
-                document.location = delUrl;
+                    document.location = delUrl;
                 }
             }
             function show_modal(id) {
@@ -109,17 +133,55 @@
                         console.log(response);
                         if (response.state) {
                             alert("Producto insertado");
+                            location.reload();
                         } else {
                             alert(response.detail);
                         }
                     }
                 }
                 request.send(fd);
-                request.onreadystatechange = function() {
-                    if (request.readyState == 4) {
-                        location.reload();
+            }
+            function edit_producto(codpro) {
+                let fd = new FormData();
+                fd.append('codpro', codpro);
+                let request = new XMLHttpRequest();
+                request.open('POST', '../servicios/producto/get_product.php', true);
+                request.onload = function() {
+                    if (request.readyState == 4 && request.status == 200) {
+                        let response = JSON.parse(request.responseText);
+                        console.log(response);
+                        document.getElementById("codigo-e").value=codpro;
+                        document.getElementById("nombre-e").value=response.product.nombreprod;
+                        document.getElementById("descripcion-e").value=response.product.descripcion;
+                        document.getElementById("rutaimagen").src="../images/"+response.product.imagen;
+                        document.getElementById("rutaimagen-aux").value=response.product.imagen
+                        show_modal('modal-producto-edit');
                     }
-                };
+                }
+                request.send(fd);
+            }
+            function update_producto() {
+                let fd = new FormData();
+                fd.append('codigo', document.getElementById('codigo-e').value);
+                fd.append('nombreprod', document.getElementById('nombre-e').value);
+                fd.append('descripcion', document.getElementById('descripcion-e').value);
+                fd.append('imagen', document.getElementById('imagen-e').files[0]);
+                fd.append('rutaimagen', document.getElementById('rutaimagen-aux').value);
+                let request = new XMLHttpRequest();
+                request.open('POST', '../servicios/producto/producto_update.php', true);
+                request.onload = function() {
+                    if (request.readyState == 4 && request.status == 200) {
+                        let response = JSON.parse(request.responseText);
+                        console.log(response);
+                        if (response.state) {
+                            alert("Producto actualizado");
+                            location.reload();
+                        } else {
+                            alert(response.detail);
+                        }
+                    }
+                }
+                request.send(fd);
             }
         </script>
    </body>

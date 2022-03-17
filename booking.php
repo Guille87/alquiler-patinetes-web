@@ -26,15 +26,17 @@
    </head>
    <!-- body -->
    <body>
-   <form action="/muevete/servicios/realizar_reserva.php" method="post" target="_blank">
+   <form action="/muevete/servicios/realizar_reserva.php" method="post">
       <div id="mySidebar" class="sidebar">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
          <a href="index.php">Inicio</a>
          <a href="about.php">Nosotros</a>
          <a href="contact.php">Contacto</a>
          <?php
-         if ($_SESSION['nomusu'] == "admin") {
+         if (isset($_SESSION['nomusu'])) {
+            if($_SESSION['nomusu'] == "admin") {
                echo '<a href="admin/main.php">Panel admin</a>';
+            }
          }
          ?>
       </div>
@@ -59,8 +61,10 @@
                   <div class="input_main">
                      <div class="container">
                         <form action="/action_page.php">
-                        <?php if (isset($_SESSION['codusu'])) {
-                                 echo '<input type="hidden" name="usuario" value="'.$_SESSION['codusu'].'"/>'; }
+                           <?php
+                           if (isset($_SESSION['codusu'])) {
+                              echo '<input type="hidden" name="usuario" value="'.$_SESSION['codusu'].'"/>';
+                           }
                               echo '<input type="hidden" name="producto" value="'.$_GET['p'].'"/>'; 
                            ?>
                            <div class="form-group">
@@ -74,9 +78,9 @@
                            <div class="form-group">
                               <span style="float:left; font-size: large;">¿Cuánto tiempo?</span>
                               <input list="answers" name="answer" id="answerInput" class="email-bt">
-                              <div id ="tiempo-list">
-                              </div>
+                              <div id ="tiempo-list"></div>
                               <input type="hidden" name="answer" id="answerInput-hidden">
+                              <input type="hidden" name="codpro" id="codpro">
                                  <!--<datalist id="tiempo">
                                      <option>1 hora</option>
                                     <option>1 día</option>
@@ -128,16 +132,14 @@
             }
 
             document.querySelector('#answerInput').addEventListener('input', function(e) {
-               var input = e.target,   
-                  list = input.getAttribute('list'),
-                  options = document.querySelectorAll('#' + list + ' option[value="'+input.value+'"]'),
-                  hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden');
-
+               var input = e.target, 
+               list = input.getAttribute('list'),
+               options = document.querySelectorAll('#' + list + ' option[value="'+input.value+'"]'),
+               hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden');
                if (options.length > 0) {
                   hiddenInput.value = input.value;
                   input.value = options[0].innerText;
-                  }
-
+               }
             });
 
             $(document).ready(function() {

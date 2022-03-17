@@ -17,6 +17,6 @@ else {
 }
 echo "<script type='text/javascript'>alert('$message');</script>";
 mysqli_close($con);
-echo  "<script type='text/javascript'>";
-echo "window.close();";
+echo "<script type='text/javascript'>";
+echo "window.location.assign('../index.php')";
 echo "</script>";

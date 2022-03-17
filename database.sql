@@ -30,4 +30,4 @@ CREATE TABLE usuario (
     PRIMARY KEY (codusuario)
 );
 
-INSERT INTO usuario (nomusu, passusu, dni, email) VALUES ('test', '1234', '53308506A', 'correo@example.com');
+INSERT INTO usuario (nomusu, passusu, dni, email) VALUES ('test', '123', '53308506A', 'correo@example.com');

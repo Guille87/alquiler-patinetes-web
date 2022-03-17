@@ -31,20 +31,6 @@
                 </div>
             </div>
             <!-- content section end -->
-            
-            <!-- footer section start -->
-         <div class="copyright_text">© 2022 - Made by Guillermo Amado Díaz</div>
-         <h2 class="social_text">Redes Sociales</h2>
-         <div class="footer_menu_social">
-            <ul>
-               <li><a href="under_construction.php"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                  <a href="under_construction.php"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-                  <a href="under_construction.php"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-                  <a href="under_construction.php"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
-                  <a href="under_construction.php"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-            </ul>
-         </div>
-         <!-- footer section end -->
 
             <!-- Javascript files-->
             <script src="js/jquery.min.js"></script>
