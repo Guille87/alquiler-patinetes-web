@@ -478,7 +478,7 @@ button.main_bt a:hover {
     width: 35%;
     float: left;
     padding-bottom: 109px;
-    margin-left: 575px;
+    margin-left: 450px;
 }
 .price_text {
     width: 58%;
@@ -837,8 +837,8 @@ th {
 .tienda {
     width: 35%;
     float: left;
-    font-size: 18.3px;
+    font-size: 15px;
     background-color: #051148;
     color: #fff;
-    padding: 7px 0;
+    padding: 10px 0;
 }

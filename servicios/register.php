@@ -5,9 +5,11 @@ error_reporting(0);
 // 3: Contraseña incorrecta
 // 4: DNI no válido
 // 6: Usuario registrado
+// 7: DNI ya existe
 include('_conexion.php');
 
 $con2 = mysqli_connect('localhost', 'root', '', 'muevete');
+$con3 = mysqli_connect('localhost', 'root', '', 'muevete');
 
 $nomusu = $_POST['nomusu'];
 $email = $_POST['emailr'];
@@ -15,9 +17,11 @@ $dni = $_POST['dni'];
 
 $sql = "SELECT * FROM usuario WHERE email='$email'";
 $sqlusu = "SELECT * FROM usuario WHERE nomusu='$nomusu'";
+$sqldni = "SELECT * FROM usuario WHERE dni = '$dni'";
 
 $result = mysqli_query($con, $sql);
 $resultusu = mysqli_query($con2, $sqlusu);
+$resultdni = mysqli_query($con3, $sqldni);
 
 if ($result) {
     $row = mysqli_fetch_array($result);
@@ -38,27 +42,38 @@ if ($result) {
                     if (!valida_dni($dni)) {
                         header('Location: ../register.php?er=4');
                     } else {
-                        if (!valida_email($email)) {
-                            header('Location: ../register.php?er=5');
+                        if ($resultdni) {
+                            $rowdni = mysqli_fetch_array($resultdni);
+                            $countdni = mysqli_num_rows($resultdni);
+                            // Si no existe el dni en la base de datos
+                            //if ($countdni == 0) {
+                                if (!valida_email($email)) {
+                                    header('Location: ../register.php?er=5');
+                                } else {
+                                    $sql = "INSERT INTO usuario (nomusu, passusu, dni, email) VALUES ('$nomusu', '$passusu', '$dni', '$email')";
+                                    $result = mysqli_query($con, $sql);
+                                    session_start();
+                                    $_SESSION['codusu'] = $row['codusu'];
+                                    $_SESSION['nomusu'] = $row['nomusu'];
+                                    $_SESSION['email'] = $row['email'];
+                                    if ($result) {
+                                        $message = "Usuario ".$nomusu." registrado satisfactoriamente!";
+                                        echo "<script type='text/javascript'>alert('$message');</script>";
+                                        echo "<script type='text/javascript'>";
+                                        echo "window.location.assign('../index.php')";
+                                        //echo "window.close();";
+                                        echo "</script>";
+                                    } else {
+                                        $message = "Ha fallado el registro";
+                                    }
+                                }
+                            /*} else {
+                                header('Location: ../register.php?er=7');
+                            }*/
                         } else {
-                            $sql = "INSERT INTO usuario (nomusu, passusu, dni, email) VALUES ('$nomusu', '$passusu', '$dni', '$email')";
-                            $result = mysqli_query($con, $sql);
-                            session_start();
-                            $_SESSION['codusu'] = $row['codusu'];
-                            $_SESSION['nomusu'] = $row['nomusu'];
-                            $_SESSION['email'] = $row['email'];
-                            if ($result) {
-                                $message = "Usuario ".$nomusu." registrado satisfactoriamente!";
-                                echo "<script type='text/javascript'>alert('$message');</script>";
-                                echo "<script type='text/javascript'>";
-                                echo "window.location.assign('../index.php')";
-                                //echo "window.close();";
-                                echo "</script>";
-                            } else {
-                                $message = "Ha fallado el registro";
-                            }
+                            header('Location: ../register.php?er=1');
                         }
-                    }   
+                    }
                 }
             } else {
                 header('Location: ../register.php?er=6');

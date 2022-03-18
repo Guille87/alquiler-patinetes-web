@@ -1,5 +1,8 @@
 <?php
     include('../servicios/_conexion.php');
+    session_start();
+    if (isset($_SESSION['nomusu'])) {
+        if($_SESSION['nomusu'] == "admin") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +43,10 @@
                     <input type="text" id="descripcion">
                 </div>
                 <div class="div-flex">
+                    <label>Stock</label>
+                    <input type="text" id="stock">
+                </div>
+                <div class="div-flex">
                     <input type="file" id="imagen">
                 </div>
                 <button onclick="save_producto()">Guardar</button>
@@ -61,6 +68,10 @@
                     <label>Descripción</label>
                     <input type="text" id="descripcion-e">
                 </div>
+                <div class="div-flex">
+                    <label>Stock</label>
+                    <input type="text" id="stock-e">
+                </div>
                 <input type="text" id="rutaimagen-aux" style="display: none;">
                 <img id="rutaimagen" src="" style="width: 200px;margin: 5px 0;">
                 <div class="div-flex">
@@ -79,6 +90,7 @@
                             <th>Código</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Stock</th>
                             <th class="td-option">Opciones</th>
                         </tr>
                     </thead>
@@ -93,6 +105,7 @@
                                     <td>'.$row['codpro'].'</td>
                                     <td>'.$row['nombreprod'].'</td>
                                     <td>'.$row['descripcion'].'</td>
+                                    <td>'.$row['stock'].'</td>
                                     <td class="td-option">
                                         <div class="flex div-td-button">
                                             <button onclick="edit_producto('.$row['codpro'].')"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
@@ -124,6 +137,7 @@
                 fd.append('codigo', document.getElementById('codigo').value);
                 fd.append('nombre', document.getElementById('nombre').value);
                 fd.append('descripcion', document.getElementById('descripcion').value);
+                fd.append('stock', document.getElementById('stock').value);
                 fd.append('imagen', document.getElementById('imagen').files[0]);
                 let request = new XMLHttpRequest();
                 request.open('POST', '../servicios/producto/producto_save.php', true);
@@ -153,6 +167,7 @@
                         document.getElementById("codigo-e").value=codpro;
                         document.getElementById("nombre-e").value=response.product.nombreprod;
                         document.getElementById("descripcion-e").value=response.product.descripcion;
+                        document.getElementById("stock-e").value=response.product.stock;
                         document.getElementById("rutaimagen").src="../images/"+response.product.imagen;
                         document.getElementById("rutaimagen-aux").value=response.product.imagen
                         show_modal('modal-producto-edit');
@@ -165,6 +180,7 @@
                 fd.append('codigo', document.getElementById('codigo-e').value);
                 fd.append('nombreprod', document.getElementById('nombre-e').value);
                 fd.append('descripcion', document.getElementById('descripcion-e').value);
+                fd.append('stock', document.getElementById('stock-e').value);
                 fd.append('imagen', document.getElementById('imagen-e').files[0]);
                 fd.append('rutaimagen', document.getElementById('rutaimagen-aux').value);
                 let request = new XMLHttpRequest();
@@ -186,3 +202,7 @@
         </script>
    </body>
 </html>
+<?php
+        }
+    }
+?>

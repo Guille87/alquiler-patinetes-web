@@ -34,7 +34,7 @@
          <?php
          if (isset($_SESSION['nomusu'])) {
             if($_SESSION['nomusu'] == "admin") {
-               echo '<a href="admin/main.php">Panel admin</a>';
+               echo '<a href="admin/productos.php">Panel admin</a>';
             }
          }
          ?>

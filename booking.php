@@ -35,7 +35,7 @@
          <?php
          if (isset($_SESSION['nomusu'])) {
             if($_SESSION['nomusu'] == "admin") {
-               echo '<a href="admin/main.php">Panel admin</a>';
+               echo '<a href="admin/productos.php">Panel admin</a>';
             }
          }
          ?>
@@ -65,7 +65,7 @@
                            if (isset($_SESSION['codusu'])) {
                               echo '<input type="hidden" name="usuario" value="'.$_SESSION['codusu'].'"/>';
                            }
-                              echo '<input type="hidden" name="producto" value="'.$_GET['p'].'"/>'; 
+                              echo '<input type="hidden" name="producto" value="'.$_GET['p'].'"/>';
                            ?>
                            <div class="form-group">
                               Fecha
@@ -90,8 +90,7 @@
                         </form>
                      </div> 
                      <div class="send_btn">
-                     <input type="submit" value="Enviar"/>
-                     <!-- <a href="#"><button type="button" class="main_bt" onclick="RealizarReserva()">Enviar</button></a> -->
+                        <input type="submit" value="Enviar"/>
                      </div>
                   </div>
                </div>

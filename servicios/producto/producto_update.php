@@ -7,12 +7,13 @@
     $codpro = $_POST['codigo'];
     $nombreprod = $_POST['nombreprod'];
     $descripcion = $_POST['descripcion'];
+    $stock = $_POST['stock'];
     $imagen = $_POST['rutaimagen'];
 
     if (isset($_FILES['imagen'])) {
         $t = time();
         $nombre_imagen = date("dmYHis",$t).".png";
-        $sql = "UPDATE producto SET nombreprod = '$nombreprod', descripcion = '$descripcion', imagen = '$nombre_imagen' WHERE codpro = '$codpro'";
+        $sql = "UPDATE producto SET nombreprod = '$nombreprod', descripcion = '$descripcion', stock = '$stock', imagen = '$nombre_imagen' WHERE codpro = '$codpro'";
         $result = mysqli_query($con, $sql);
         if ($result) {
             if(move_uploaded_file($_FILES['imagen']['tmp_name'], "../../images/" . $nombre_imagen)) {
@@ -27,7 +28,7 @@
             $response->detail = "No se pudo guardar el producto";
         }
     } else {
-        $sql = "UPDATE producto SET nombreprod = '$nombreprod', descripcion = '$descripcion' WHERE codpro = '$codpro'";
+        $sql = "UPDATE producto SET nombreprod = '$nombreprod', descripcion = '$descripcion', stock = '$stock' WHERE codpro = '$codpro'";
         $result = mysqli_query($con, $sql);
         if ($result) {
             $response->state = true;

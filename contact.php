@@ -35,7 +35,7 @@
          <?php
          if (isset($_SESSION['nomusu'])) {
             if($_SESSION['nomusu'] == "admin") {
-               echo '<a href="admin/main.php">Panel admin</a>';
+               echo '<a href="admin/productos.php">Panel admin</a>';
             }
          }
          ?>
@@ -57,21 +57,21 @@
                      <div class="email_box">
                         <div class="input_main">
                            <div class="container">
-                              <form action="MAILTO:guillermo_amado@hotmail.es" method="post" enctype="text/plain">
+                              <form action="servicios/enviar_mail.php" method="POST">
                                  <div class="form-group">
-                                    <input type="text" class="email-bt" placeholder="Nombre" name="Nombre">
+                                    <input id="nombre" type="text" class="email-bt" placeholder="Nombre" name="nombre" required>
                                  </div>
                                  <div class="form-group">
-                                    <input type="text" class="email-bt" placeholder="Email" name="Email">
+                                    <input id="email" type="email" class="email-bt" placeholder="example@example.com" name="email" required>
                                  </div>
                                  <div class="form-group">
-                                    <input type="text" class="email-bt" placeholder="Teléfono" name="Telefono">
+                                    <input id="sujeto" type="text" class="email-bt" placeholder="Asunto" name="asunto">
                                  </div>
                                  <div class="form-group">
-                                    <textarea class="message-bt" placeholder="Mensaje" rows="5" id="comment" name="Mensaje"></textarea>
+                                    <textarea id="mensaje" class="message-bt" placeholder="Mensaje..." rows="5" maxlength="255" name="mensaje"></textarea>
                                  </div>
                                  <div class="send_btn">
-                                    <button type="submit" class="main_bt">Enviar</button>
+                                    <input id="submit" type="submit" value="Enviar">
                                  </div>
                               </form>
                            </div> 

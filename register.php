@@ -34,7 +34,7 @@
          <?php
          if (isset($_SESSION['nomusu'])) {
             if($_SESSION['nomusu'] == "admin") {
-               echo '<a href="admin/main.php">Panel admin</a>';
+               echo '<a href="admin/productos.php">Panel admin</a>';
             }
          }
          ?>
@@ -91,6 +91,9 @@
                                                         break;
                                                     case '6':
                                                         echo '<p class="error">El usuario ya está registrado</p>';
+                                                        break;
+                                                    case '7':
+                                                        echo '<p class="error">El DNI ya existe</p>';
                                                         break;
                                                     default:
                                                         break;
